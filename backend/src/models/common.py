@@ -21,12 +21,12 @@ class PyObjectId(ObjectId):
 
 
 class CommonModel(BaseModel):
-    _id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
+    id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
     created_at: Optional[datetime]
     updated_at: Optional[datetime]
 
     class Config:
         allow_population_by_field_name = True
         arbitrary_types_allowed = True
-        json_encoders = { ObjectId: str }
-        # media_type = "application/json"
+        json_encoders = { ObjectId: lambda v: str(v) }
+        media_type = "application/json"
