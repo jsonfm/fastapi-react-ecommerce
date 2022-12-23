@@ -20,9 +20,8 @@ class PyObjectId(ObjectId):
         field_schema.update(type="string")
 
 
-
 class CommonModel(BaseModel):
-    id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
+    _id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
     created_at: Optional[datetime]
     updated_at: Optional[datetime]
 
@@ -30,3 +29,4 @@ class CommonModel(BaseModel):
         allow_population_by_field_name = True
         arbitrary_types_allowed = True
         json_encoders = { ObjectId: str }
+        # media_type = "application/json"
