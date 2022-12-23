@@ -7,6 +7,7 @@ router = APIRouter(
     tags=["Products"]
 )
 
+print("db: ", db)
 
 @router.get("/")
 async def get_products():
@@ -25,7 +26,6 @@ async def create_product():
         "description": "some product"
     }
     result = await db["products"].insert_one(product)
-    print("result xd: ", result)
     return "Creating Product!"
 
 
