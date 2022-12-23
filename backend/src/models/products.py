@@ -1,4 +1,4 @@
-from models import CommonModel
+from models.common import CommonModel
 
 
 class Product(CommonModel):
