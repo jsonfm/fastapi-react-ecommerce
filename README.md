@@ -25,8 +25,7 @@ The project is a full responsive site, and implements all mainly functionalities
 
 
 ### 💾 Database
-A database it's available with Docker if you don't want to install. For use it just create a `.env` file in the root directory, and fill the following fields:
-
+A database it's available with Docker if you don't want to install it. For use it, just create a `.env` file in the root directory, and fill the following fields:
 ```
 MONGO_USERNAME=
 MONGO_PASSWORD=
