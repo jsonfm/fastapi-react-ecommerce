@@ -7,3 +7,9 @@ of an Ecommerce.
 python3 -m venv venv
 source venv/bin/activate
 ```
+
+### 🚀 Execution
+```
+cd src
+uvicorn main:app --reload
+```
