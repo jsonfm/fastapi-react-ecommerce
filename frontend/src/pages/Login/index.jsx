@@ -1,24 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { authService } from "@/services/auth.service";
 import { API_URL } from "@/api";
 
 
 export function Login() {
     const [state, setState] = useState({ email: "", password: ""});
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        fetch(`${API_URL}/auth/login`, {
-            method: "POST",
-            body: JSON.stringify(state),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        .then(res => res.json())
-        .then(res => {
-            console.log("res: ", res)
-        })
+        try {
+            await authService.login({email: state.email, password: state.password});
+        }catch(err) {
+            console.error(err);
+        }
     }  
 
     return (
